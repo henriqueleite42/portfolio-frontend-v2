@@ -1,0 +1,49 @@
+@font-face {
+  font-family: "MontserratRegular";
+  src: url("../Fonts/Montserrat/Montserrat-Medium.ttf");
+}
+
+@font-face {
+  font-family: "MontserratBold";
+  src: url("../Fonts/Montserrat/Montserrat-Bold.ttf");
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  outline: 0;
+  list-style: none;
+  overflow-x: hidden;
+}
+
+html,
+body {
+  height: 100vh;
+  font-family: MontserratRegular, sans-serif;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+html {
+  /* 1rem = 10px */
+  font-size: 62.5%;
+  color: white;
+}
+
+button,
+input,
+textarea {
+  border: none;
+  background-color: transparent;
+  font-size: 1.8rem;
+}
+
+button:not(:disabled) {
+  cursor: pointer;
+}
+
+body {
+  font-size: 1.8rem;
+}
