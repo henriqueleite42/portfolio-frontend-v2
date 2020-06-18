@@ -3,7 +3,7 @@ import { fontBold } from "Assets/Style/Fonts";
 
 import styled from "styled-components";
 
-const NAV_WIDTH = "20vw";
+export const NAV_WIDTH = "20vw";
 
 export const Container = styled.div`
   display: flex;
@@ -12,7 +12,7 @@ export const Container = styled.div`
 export const Left = styled.div`
   width: ${NAV_WIDTH};
   height: 100vh;
-  background-color: ${Colors.main};
+  background-color: ${Colors.primary};
 `;
 
 export const Logo = styled.div`
@@ -21,6 +21,7 @@ export const Logo = styled.div`
   align-items: center;
   font-size: 2em;
   height: 15vh;
+  color: ${Colors.background};
   ${fontBold};
 `;
 
@@ -36,7 +37,7 @@ export const NavItem = styled.button<{ "data-active": "true" | "false" }>`
   display: flex;
   align-items: center;
   font-size: 1.2em;
-  padding: 0.2em 0.8em;
+  padding: 0.2em 0;
   padding-right: 0;
   width: 100%;
   color: ${Colors.background};
@@ -50,8 +51,6 @@ export const NavItem = styled.button<{ "data-active": "true" | "false" }>`
     padding: 0.5em 0.7em;
     padding-left: 0.8em;
     width: 100%;
-    border-top-left-radius: 2em;
-    border-bottom-left-radius: 2em;
     display: flex;
     justify-content: flex-start;
     align-items: center;
@@ -59,7 +58,7 @@ export const NavItem = styled.button<{ "data-active": "true" | "false" }>`
 
   &[data-active="true"],
   &:hover {
-    color: ${Colors.main};
+    color: ${Colors.primary};
 
     > div {
       background-color: ${Colors.background};
@@ -73,10 +72,29 @@ export const Footer = styled.nav`
   align-items: center;
   height: 10vh;
   width: ${NAV_WIDTH};
+  color: ${Colors.background};
 `;
 
 export const Right = styled.div`
   width: 80vw;
   height: 100vh;
+  padding: 2em;
   background-color: ${Colors.background};
+
+  &::-webkit-scrollbar {
+    width: 1em;
+  }
+
+  &::-webkit-scrollbar-track {
+    background-color: transparent;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: ${Colors.secondary};
+    transition: all 0.5s ease-in-out;
+
+    &:hover {
+      background-color: ${Colors.primary};
+    }
+  }
 `;

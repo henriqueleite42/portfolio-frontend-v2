@@ -1,4 +1,10 @@
+interface ITechnology {
+  technology: string;
+  color: string;
+}
+
 export interface IProject {
+  id: string;
   type: "game" | "site" | "backend";
   accessible: boolean;
   responsive: boolean;
@@ -8,4 +14,5 @@ export interface IProject {
   name: string;
   description: string;
   repository: string;
+  technologies: Array<ITechnology>;
 }

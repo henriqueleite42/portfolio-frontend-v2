@@ -1,33 +1,36 @@
-import React, { Suspense } from "react";
+import React, { Suspense, useContext } from "react";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 
 import loadRoute from "./loadRoute";
 
-import Loading from "Components/Loading";
+import LoadingScreen from "Views/LoadingScreen";
 
-import { useGlobalConfig } from "Hooks/useGlobalConfig";
+import Providers from "Contexts";
+import { GlobalContext } from "Contexts/Global";
 
 import { NON_AUTH_ROUTES } from "Config/routes";
 
 const Router: React.FC = () => {
-  const { theme } = useGlobalConfig();
+  const { theme } = useContext(GlobalContext);
 
   return (
-    <Suspense fallback={<Loading />}>
-      <div data-theme={theme}>
-        <BrowserRouter>
-          <Switch>
-            {NON_AUTH_ROUTES.map(route => (
-              <Route
-                exact
-                key={route.name}
-                path={route.fullRoute || route.route}
-                component={loadRoute(route)}
-              />
-            ))}
-          </Switch>
-        </BrowserRouter>
-      </div>
+    <Suspense fallback={<LoadingScreen />}>
+      <Providers>
+        <div data-theme={theme}>
+          <BrowserRouter>
+            <Switch>
+              {NON_AUTH_ROUTES.map(route => (
+                <Route
+                  exact={route.exact ?? true}
+                  key={route.name}
+                  path={route.fullRoute || route.route}
+                  component={loadRoute(route)}
+                />
+              ))}
+            </Switch>
+          </BrowserRouter>
+        </div>
+      </Providers>
     </Suspense>
   );
 };

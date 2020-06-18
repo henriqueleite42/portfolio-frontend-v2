@@ -11,6 +11,9 @@ import {
   faDesktop,
   faServer,
   faStar,
+  faFilter,
+  faComment,
+  faTools,
 } from "@fortawesome/free-solid-svg-icons";
 
 library.add(
@@ -24,6 +27,9 @@ library.add(
   faDesktop,
   faServer,
   faStar,
+  faFilter,
+  faComment,
+  faTools,
 );
 
 export default library;

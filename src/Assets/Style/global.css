@@ -8,6 +8,16 @@
   src: url("../Fonts/Montserrat/Montserrat-Bold.ttf");
 }
 
+@font-face {
+  font-family: "MontserratRegularItalic";
+  src: url("../Fonts/Montserrat/Montserrat-Italic.ttf");
+}
+
+@font-face {
+  font-family: "MontserratBoldItalic";
+  src: url("../Fonts/Montserrat/Montserrat-BoldItalic.ttf");
+}
+
 * {
   box-sizing: border-box;
   padding: 0;
@@ -46,4 +56,5 @@ button:not(:disabled) {
 
 body {
   font-size: 1.8rem;
+  color: #24292e;
 }

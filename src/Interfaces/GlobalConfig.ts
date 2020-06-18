@@ -1,7 +1,8 @@
-export type Theme = "dark" | "light";
-export type Language = "EN" | "BR";
+export type ITheme = "dark" | "light";
 
-export interface State {
-  theme: Theme;
-  language: Language;
+export type ILanguage = "EN" | "BR";
+
+export interface IState {
+  theme: ITheme;
+  language: ILanguage;
 }

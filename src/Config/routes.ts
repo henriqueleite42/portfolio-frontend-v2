@@ -5,6 +5,7 @@ export interface IRoute {
   component: string;
   blocked?: boolean;
   navBar?: boolean;
+  exact?: boolean;
 }
 
 // Routes
@@ -13,7 +14,13 @@ const nonAuthRoutes = {
   home: {
     name: "home",
     route: "/",
-    component: "Home",
+    component: "About",
+    navBar: true,
+  },
+  skills: {
+    name: "skills",
+    route: "/skills",
+    component: "Skills",
     navBar: true,
   },
   projects: {
@@ -21,6 +28,14 @@ const nonAuthRoutes = {
     route: "/projects",
     component: "Projects",
     navBar: true,
+  },
+  projectDetail: {
+    name: "projects",
+    route: "/project",
+    fullRoute: "/project/:projectID",
+    component: "ProjectDetails",
+    navBar: true,
+    exact: false,
   },
   contact: {
     name: "contact",

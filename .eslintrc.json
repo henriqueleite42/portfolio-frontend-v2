@@ -43,6 +43,7 @@
           ["parent", "sibling", "index"],
           ["/Core/Views/", "/Views/"],
           ["/Core/Components/", "/Components/"],
+          ["/Core/Contexts/", "/Contexts/"],
           ["/Core/Hooks/", "/Hooks/"],
           ["/Core/Functions/", "/Functions/"],
           ["/Core/Utils/", "/Utils/"],

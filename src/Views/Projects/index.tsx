@@ -1,74 +1,133 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useCallback } from "react";
 
+import Loading from "./Components/Loading";
 import Project from "./Components/Project";
 
-import { IProject } from "Interfaces/Project";
+import useProjects from "Hooks/useProjects";
 
-import { Container, Header, ProjectsContainer } from "./style";
+import { Header, ProjectsContainer, Filters, FilterItem } from "./style";
 
-const TEMP_PROJECTS: Array<IProject> = [
+interface IFilters {
+  github: boolean;
+  completed: boolean;
+  game: boolean;
+  site: boolean;
+  backend: boolean;
+  acessible: boolean;
+  responsive: boolean;
+}
+
+interface IFilter {
+  name: string;
+  filter: keyof IFilters;
+}
+
+const FILTERS: Array<IFilter> = [
   {
-    type: "site",
-    accessible: true,
-    responsive: true,
-    complete: true,
-    top: true,
-    yearOfCreation: 2020,
-    name: "Project Name",
-    description: `Project Description Project Description Project Description Project
-    Description Project Description Project Description Project
-    Description Project Description`,
-    repository: "aa",
+    name: "GitHub Repository",
+    filter: "github",
   },
   {
-    type: "game",
-    accessible: true,
-    responsive: true,
-    complete: true,
-    top: true,
-    yearOfCreation: 2020,
-    name: "Project Name",
-    description: `Project Description Project Description Project Description Project
-    Description Project Description Project Description Project
-    Description Project Description`,
-    repository: "aa",
+    name: "Completed",
+    filter: "completed",
   },
   {
-    type: "backend",
-    accessible: true,
-    responsive: true,
-    complete: true,
-    top: true,
-    yearOfCreation: 2020,
-    name: "Project Name",
-    description: `Project Description Project Description Project Description Project
-    Description Project Description Project Description Project
-    Description Project Description`,
-    repository: "aa",
+    name: "Game",
+    filter: "game",
+  },
+  {
+    name: "Site",
+    filter: "site",
+  },
+  {
+    name: "Back End",
+    filter: "backend",
+  },
+  {
+    name: "Acessible",
+    filter: "acessible",
+  },
+  {
+    name: "Responsive",
+    filter: "responsive",
   },
 ];
 
 const Projects: React.FC = () => {
-  const [projects, setProjects] = useState<Array<IProject>>([]);
+  const [filters, setFilters] = useState<IFilters>({
+    github: false,
+    completed: false,
+    game: false,
+    site: false,
+    backend: false,
+    acessible: false,
+    responsive: false,
+  });
 
-  useEffect(() => {
-    setProjects(TEMP_PROJECTS);
-  }, []);
+  const { projects, status } = useProjects();
+
+  const getProjects = useCallback(() => {
+    const filtredProjects = projects.filter(project => {
+      if (filters.site && project.type !== "site") return false;
+      if (filters.game && project.type !== "game") return false;
+      if (filters.backend && project.type !== "backend") return false;
+      if (filters.github && !project.repository) return false;
+      if (filters.acessible && !project.accessible) return false;
+      if (filters.responsive && !project.responsive) return false;
+      if (filters.completed && !project.complete) return false;
+
+      return true;
+    });
+
+    return filtredProjects.map(project => (
+      <Project key={project.name} {...project} />
+    ));
+  }, [filters, projects]);
+
+  const handleSetFilters = useCallback(
+    (filter: keyof IFilters) => {
+      const newFilters = JSON.parse(JSON.stringify(filters)) as IFilters;
+
+      const unique = ["game", "site", "backend"] as Array<keyof IFilters>;
+
+      if (unique.includes(filter)) {
+        unique.forEach(field => {
+          if (field !== filter) {
+            newFilters[field] = false;
+          }
+        });
+      }
+
+      newFilters[filter] = !newFilters[filter];
+
+      setFilters(newFilters);
+    },
+    [filters],
+  );
+
+  if (status === "loading") return <Loading />;
 
   return (
-    <Container>
+    <>
       <Header>
         <span>Projects</span>
         <div>
           <span>{projects.length}</span>
         </div>
       </Header>
-      <ProjectsContainer>
-        {projects.map(project => (
-          <Project key={project.name} {...project} />
+      <Filters>
+        {FILTERS.map(({ filter, name }) => (
+          <FilterItem
+            key={filter}
+            active={filters[filter]}
+            onClick={() => handleSetFilters(filter)}
+          >
+            {name}
+          </FilterItem>
         ))}
-      </ProjectsContainer>
-    </Container>
+      </Filters>
+      <ProjectsContainer>{getProjects()}</ProjectsContainer>
+    </>
   );
 };
 
