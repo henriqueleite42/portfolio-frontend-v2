@@ -21,7 +21,7 @@ export const Body = styled.div`
   margin: 1.5rem 0;
 `;
 
-export const TechnologiesContainer = styled.div`
+export const SkillsContainer = styled.div`
   width: 40%;
 
   > span {
@@ -29,7 +29,7 @@ export const TechnologiesContainer = styled.div`
   }
 `;
 
-export const Technologies = styled.div`
+export const Skills = styled.div`
   height: 5em;
   width: 100%;
   margin-top: 1rem;
@@ -43,7 +43,7 @@ export const Technologies = styled.div`
   }
 `;
 
-export const Technology = styled.span<{ color: string }>`
+export const Skill = styled.span<{ color: string }>`
   color: ${Colors.background};
   font-size: 0.8em;
   background: ${({ color }) => color};

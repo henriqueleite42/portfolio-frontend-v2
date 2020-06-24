@@ -16,25 +16,25 @@ const TEMP_PROJECTS: Array<IProject> = [
     Description Project Description Project Description Project
     Description Project Description`,
     repository: "aa",
-    technologies: [
+    skills: [
       {
-        technology: "React",
+        skill: "React",
         color: "#03d2f9",
       },
       {
-        technology: "Typescript",
+        skill: "Typescript",
         color: "#0074c1",
       },
       {
-        technology: "Context",
+        skill: "Context",
         color: "#764abc",
       },
       {
-        technology: "NodeJs",
+        skill: "NodeJs",
         color: "#8cbf3e",
       },
       {
-        technology: "ElasticSearch",
+        skill: "ElasticSearch",
         color: "linear-gradient(to bottom right, #24bbb1, #93c83e, #fed10a)",
       },
     ],
@@ -52,9 +52,9 @@ const TEMP_PROJECTS: Array<IProject> = [
     Description Project Description Project Description Project
     Description Project Description`,
     repository: "aa",
-    technologies: [
+    skills: [
       {
-        technology: "React",
+        skill: "React",
         color: "#03d2f9",
       },
     ],
@@ -72,9 +72,9 @@ const TEMP_PROJECTS: Array<IProject> = [
     Description Project Description Project Description Project
     Description Project Description`,
     repository: "aa",
-    technologies: [
+    skills: [
       {
-        technology: "React",
+        skill: "React",
         color: "#03d2f9",
       },
     ],
@@ -92,9 +92,9 @@ const TEMP_PROJECTS: Array<IProject> = [
     Description Project Description Project Description Project
     Description Project Description`,
     repository: "aa",
-    technologies: [
+    skills: [
       {
-        technology: "React",
+        skill: "React",
         color: "#03d2f9",
       },
     ],
@@ -112,9 +112,9 @@ const TEMP_PROJECTS: Array<IProject> = [
     Description Project Description Project Description Project
     Description Project Description`,
     repository: "aa",
-    technologies: [
+    skills: [
       {
-        technology: "React",
+        skill: "React",
         color: "#03d2f9",
       },
     ],
@@ -132,9 +132,9 @@ const TEMP_PROJECTS: Array<IProject> = [
     Description Project Description Project Description Project
     Description Project Description`,
     repository: "aa",
-    technologies: [
+    skills: [
       {
-        technology: "React",
+        skill: "React",
         color: "#03d2f9",
       },
     ],

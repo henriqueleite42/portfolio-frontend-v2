@@ -16,9 +16,9 @@ import {
   Footer,
   Name,
   Description,
-  Technologies,
-  Technology,
-  TechnologiesContainer,
+  Skills,
+  Skill,
+  SkillsContainer,
   Attributes,
 } from "./style";
 
@@ -33,7 +33,7 @@ const Project: React.FC<IProject> = props => {
     type,
     accessible,
     top,
-    technologies,
+    skills,
   } = props;
 
   const history = useHistory();
@@ -45,16 +45,16 @@ const Project: React.FC<IProject> = props => {
       </div>
       <Body>
         <Description>{description}</Description>
-        <TechnologiesContainer>
-          <span>Technologies</span>
-          <Technologies>
-            {technologies.map(technology => (
-              <Technology key={technology.technology} color={technology.color}>
-                {technology.technology}
-              </Technology>
+        <SkillsContainer>
+          <span>Skills</span>
+          <Skills>
+            {skills.map(skill => (
+              <Skill key={skill.skill} color={skill.color}>
+                {skill.skill}
+              </Skill>
             ))}
-          </Technologies>
-        </TechnologiesContainer>
+          </Skills>
+        </SkillsContainer>
       </Body>
       <Footer>
         <Button

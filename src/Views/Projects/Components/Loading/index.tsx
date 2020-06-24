@@ -6,9 +6,9 @@ import {
   Footer,
   Name,
   Description,
-  Technologies,
+  Skills,
   Button,
-  TechnologiesContainer,
+  SkillsContainer,
   Attributes,
   Header,
   ProjectsContainer,
@@ -23,14 +23,14 @@ const ProjectLoading: React.FC = () => (
     </div>
     <Body>
       <Description />
-      <TechnologiesContainer>
+      <SkillsContainer>
         <span></span>
-        <Technologies>
+        <Skills>
           <span>Tech</span>
           <span>Tech</span>
           <span>Tech</span>
-        </Technologies>
-      </TechnologiesContainer>
+        </Skills>
+      </SkillsContainer>
     </Body>
     <Footer>
       <Button>See More</Button>

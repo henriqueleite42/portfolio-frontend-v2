@@ -1,5 +1,5 @@
-interface ITechnology {
-  technology: string;
+interface ISkill {
+  skill: string;
   color: string;
 }
 
@@ -14,5 +14,5 @@ export interface IProject {
   name: string;
   description: string;
   repository: string;
-  technologies: Array<ITechnology>;
+  skills: Array<ISkill>;
 }
