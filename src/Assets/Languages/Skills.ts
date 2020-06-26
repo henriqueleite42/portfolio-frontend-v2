@@ -26,6 +26,8 @@ export interface ISkills {
   cloudFunctions: string;
 }
 
+export type AllSkills = keyof ISkills;
+
 const EN: ISkills = {
   react: "React",
   nodejs: "NodeJS",

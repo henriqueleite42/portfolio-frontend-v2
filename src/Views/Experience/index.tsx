@@ -2,8 +2,8 @@ import React from "react";
 
 import { Container } from "./style";
 
-const Loading: React.FC = () => {
+const Experience: React.FC = () => {
   return <Container></Container>;
 };
 
-export default Loading;
+export default Experience;

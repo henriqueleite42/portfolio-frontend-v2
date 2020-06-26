@@ -6,7 +6,7 @@ import SkillsColumn from "Components/SkillsColumn";
 import { ROUTES_NAME } from "Config/routes";
 
 import ImgImages from "Assets/Images";
-import { ISkills } from "Assets/Languages/Skills";
+import { AllSkills } from "Assets/Languages/Skills";
 
 import {
   Header,
@@ -19,7 +19,7 @@ import {
   Description,
 } from "./style";
 
-const SKILLS: Array<keyof ISkills> = [
+const SKILLS: Array<AllSkills> = [
   "react",
   "nodejs",
   "typescript",

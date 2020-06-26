@@ -37,6 +37,12 @@ const nonAuthRoutes = {
     navBar: true,
     exact: false,
   },
+  experience: {
+    name: "experience",
+    route: "/experience",
+    component: "Experience",
+    navBar: true,
+  },
   contact: {
     name: "contact",
     route: "/contact",

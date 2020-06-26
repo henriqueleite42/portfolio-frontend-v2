@@ -3,14 +3,14 @@ import React, { useContext } from "react";
 import { GlobalContext } from "Contexts/Global";
 
 import ImgSkills from "Assets/Images/Skills";
-import LngSkills, { ISkills } from "Assets/Languages/Skills";
+import LngSkills, { AllSkills } from "Assets/Languages/Skills";
 
 import { Container, Header, Body, Skill } from "./style";
 
 interface IProps {
   width?: string;
   name: string;
-  skills: Array<keyof ISkills>;
+  skills: Array<AllSkills>;
 }
 
 const SkillsColumn: React.FC<IProps> = ({ width, name, skills, children }) => {

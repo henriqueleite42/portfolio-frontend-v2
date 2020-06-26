@@ -1,7 +1,7 @@
+import styled from "styled-components";
+
 import Colors from "Assets/Style/Colors";
 import { fontBold } from "Assets/Style/Fonts";
-
-import styled from "styled-components";
 
 export const ProjectsContainer = styled.div`
   > div {

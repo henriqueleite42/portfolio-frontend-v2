@@ -1,5 +1,7 @@
+import { AllSkills } from "Assets/Languages/Skills";
+
 interface ISkill {
-  skill: string;
+  skill: AllSkills;
   color: string;
 }
 

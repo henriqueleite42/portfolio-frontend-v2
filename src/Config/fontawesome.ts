@@ -14,6 +14,7 @@ import {
   faFilter,
   faComment,
   faTools,
+  faFolderOpen,
 } from "@fortawesome/free-solid-svg-icons";
 
 library.add(
@@ -30,6 +31,7 @@ library.add(
   faFilter,
   faComment,
   faTools,
+  faFolderOpen,
 );
 
 export default library;

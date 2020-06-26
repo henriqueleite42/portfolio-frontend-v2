@@ -1,7 +1,7 @@
+import styled from "styled-components";
+
 import Colors from "Assets/Style/Colors";
 import { fontBold } from "Assets/Style/Fonts";
-
-import styled from "styled-components";
 
 export const NAV_WIDTH = "20vw";
 
@@ -57,7 +57,8 @@ export const NavItem = styled.button<{ "data-active": "true" | "false" }>`
   }
 
   &[data-active="true"],
-  &:hover {
+  &:hover,
+  &:focus {
     color: ${Colors.primary};
 
     > div {

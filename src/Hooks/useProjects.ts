@@ -18,24 +18,24 @@ const TEMP_PROJECTS: Array<IProject> = [
     repository: "aa",
     skills: [
       {
-        skill: "React",
+        skill: "react",
         color: "#03d2f9",
       },
       {
-        skill: "Typescript",
+        skill: "typescript",
         color: "#0074c1",
       },
       {
-        skill: "Context",
+        skill: "redux",
         color: "#764abc",
       },
       {
-        skill: "NodeJs",
+        skill: "nodejs",
         color: "#8cbf3e",
       },
       {
-        skill: "ElasticSearch",
-        color: "linear-gradient(to bottom right, #24bbb1, #93c83e, #fed10a)",
+        skill: "elasticSearch",
+        color: "#19bcb1",
       },
     ],
   },
@@ -54,7 +54,7 @@ const TEMP_PROJECTS: Array<IProject> = [
     repository: "aa",
     skills: [
       {
-        skill: "React",
+        skill: "react",
         color: "#03d2f9",
       },
     ],
@@ -74,7 +74,7 @@ const TEMP_PROJECTS: Array<IProject> = [
     repository: "aa",
     skills: [
       {
-        skill: "React",
+        skill: "react",
         color: "#03d2f9",
       },
     ],
@@ -94,7 +94,7 @@ const TEMP_PROJECTS: Array<IProject> = [
     repository: "aa",
     skills: [
       {
-        skill: "React",
+        skill: "react",
         color: "#03d2f9",
       },
     ],
@@ -114,7 +114,7 @@ const TEMP_PROJECTS: Array<IProject> = [
     repository: "aa",
     skills: [
       {
-        skill: "React",
+        skill: "react",
         color: "#03d2f9",
       },
     ],
@@ -134,7 +134,7 @@ const TEMP_PROJECTS: Array<IProject> = [
     repository: "aa",
     skills: [
       {
-        skill: "React",
+        skill: "react",
         color: "#03d2f9",
       },
     ],

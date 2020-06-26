@@ -1,7 +1,5 @@
 import React from "react";
 
-import Loading from "Components/Loading";
-
 import {
   Container,
   Left,
@@ -42,9 +40,7 @@ const LoadingScreen: React.FC = () => (
         <span>Razal&#39;s Portfolio</span>
       </Footer>
     </Left>
-    <Right>
-      <Loading />
-    </Right>
+    <Right />
   </Container>
 );
 

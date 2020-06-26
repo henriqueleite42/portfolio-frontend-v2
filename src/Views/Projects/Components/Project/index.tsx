@@ -1,14 +1,17 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import React from "react";
+import React, { useContext } from "react";
 import { useHistory } from "react-router-dom";
 
 import Button from "Components/Button";
+
+import { GlobalContext } from "Contexts/Global";
 
 import { ROUTES_NAME } from "Config/routes";
 
 import { IProject } from "Interfaces/Project";
 
 import ImgImages from "Assets/Images";
+import LngSkills from "Assets/Languages/Skills";
 
 import {
   Container,
@@ -36,6 +39,7 @@ const Project: React.FC<IProject> = props => {
     skills,
   } = props;
 
+  const { language } = useContext(GlobalContext);
   const history = useHistory();
 
   return (
@@ -50,7 +54,7 @@ const Project: React.FC<IProject> = props => {
           <Skills>
             {skills.map(skill => (
               <Skill key={skill.skill} color={skill.color}>
-                {skill.skill}
+                {LngSkills[language][skill.skill]}
               </Skill>
             ))}
           </Skills>

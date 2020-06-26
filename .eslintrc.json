@@ -39,7 +39,7 @@
       {
         "newlinesBetween": "always",
         "groups": [
-          ["/react/", "module"],
+          ["/react/", "module", "/styled/"],
           ["parent", "sibling", "index"],
           ["/Core/Views/", "/Views/"],
           ["/Core/Components/", "/Components/"],

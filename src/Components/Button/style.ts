@@ -1,6 +1,6 @@
-import Colors from "Assets/Style/Colors";
-
 import styled from "styled-components";
+
+import Colors from "Assets/Style/Colors";
 
 export const Container = styled.button`
   padding: 0.5rem 1rem;

@@ -1,8 +1,9 @@
+import styled from "styled-components";
+
 import Colors from "Assets/Style/Colors";
 import { fontBold } from "Assets/Style/Fonts";
 
 import { NAV_WIDTH } from "../NavBar/style";
-import styled from "styled-components";
 
 export const Container = styled.div`
   display: flex;

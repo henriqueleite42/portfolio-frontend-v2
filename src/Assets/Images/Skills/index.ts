@@ -1,6 +1,6 @@
-import { ISkills } from "Assets/Languages/Skills";
+import { AllSkills } from "Assets/Languages/Skills";
 
-const Skills: { [T in keyof ISkills]: any } = {
+const Skills: { [T in AllSkills]: any } = {
   react: require("./react.png"),
   nodejs: require("./nodejs.png"),
   typescript: require("./typescript.png"),
