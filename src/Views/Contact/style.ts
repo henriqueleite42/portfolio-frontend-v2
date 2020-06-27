@@ -22,6 +22,7 @@ export const Description = styled.p`
 `;
 
 export const ButtonContainer = styled.div`
+  margin-top: 2em;
   display: flex;
   justify-content: flex-end;
   align-items: center;

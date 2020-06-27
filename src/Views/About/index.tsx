@@ -1,7 +1,10 @@
 import React from "react";
+import { Helmet } from "react-helmet";
 import { useHistory } from "react-router-dom";
 
 import SkillsColumn from "Components/SkillsColumn";
+
+import getPageTile from "Hooks/usePageTitle";
 
 import { ROUTES_NAME } from "Config/routes";
 
@@ -34,6 +37,9 @@ const About: React.FC = () => {
 
   return (
     <>
+      <Helmet>
+        <title>{getPageTile()}</title>
+      </Helmet>
       <Header>
         <Img src={ImgImages.selfie} alt="Razal" />
         <div>

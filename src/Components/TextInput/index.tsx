@@ -1,14 +1,12 @@
 import React from "react";
-import TextareaAutosize from "react-textarea-autosize";
 
 import {
   Container,
   LabelContainer,
   Label,
   InputContainer,
+  Input,
   ErrorContainer,
-  Wrapper,
-  TextareaContainer,
 } from "./style";
 
 interface IProps extends React.InputHTMLAttributes<HTMLInputElement> {
@@ -18,43 +16,39 @@ interface IProps extends React.InputHTMLAttributes<HTMLInputElement> {
    */
   name: string;
   label: string;
-  textarea?: boolean;
   isRequired?: boolean;
   errorMessage?: string;
   innerRef?: any;
   containerStyle?: React.CSSProperties;
 }
 
-const Input: React.FC<IProps> = props => {
+const TextInput: React.FC<IProps> = props => {
   const {
     label,
     innerRef,
-    textarea,
     errorMessage,
     containerStyle,
     isRequired,
-    placeholder,
     id,
   } = props;
 
   return (
     <Container style={containerStyle}>
-      <LabelContainer>
-        <Label htmlFor={id} required={isRequired}>
-          {label}
-        </Label>
-      </LabelContainer>
-      {!textarea && <InputContainer {...props} type="text" ref={innerRef} />}
-      {textarea && (
-        <TextareaContainer>
-          <TextareaAutosize placeholder={placeholder || ""} ref={innerRef} />
-        </TextareaContainer>
+      <InputContainer>
+        <LabelContainer>
+          <Label htmlFor={id} required={isRequired}>
+            {label}
+          </Label>
+        </LabelContainer>
+        <Input {...props} type="text" ref={innerRef} />
+      </InputContainer>
+      {errorMessage && (
+        <ErrorContainer>
+          <label>{errorMessage}</label>
+        </ErrorContainer>
       )}
-      {/* <Wrapper>
-        <ErrorContainer>{errorMessage}</ErrorContainer>
-      </Wrapper> */}
     </Container>
   );
 };
 
-export default Input;
+export default TextInput;

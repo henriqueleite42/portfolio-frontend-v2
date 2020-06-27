@@ -1,4 +1,7 @@
 import React from "react";
+import { Helmet } from "react-helmet";
+
+import getPageTile from "Hooks/usePageTitle";
 
 import {
   Container,
@@ -12,6 +15,9 @@ import {
 
 const LoadingScreen: React.FC = () => (
   <Container>
+    <Helmet>
+      <title>{getPageTile()}</title>
+    </Helmet>
     <Left>
       <Logo>
         <span>Razal</span>

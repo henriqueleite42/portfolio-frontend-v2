@@ -1,10 +1,10 @@
+import { IconProp } from "@fortawesome/fontawesome-svg-core";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { useCallback } from "react";
 import { useLocation, useHistory } from "react-router-dom";
 
 import { capitalizeFirst } from "Utils/String";
 
-import { NAV_ITEMS, INavItem } from "Config/navbar";
 import { ROUTES_NAME, NonAuthRoutesType } from "Config/routes";
 
 import {
@@ -16,6 +16,70 @@ import {
   Footer,
   NavItem,
 } from "./style";
+
+export interface INavItem {
+  isActiveInThisRoutes: Array<{
+    route: NonAuthRoutesType;
+    typeToCheck?: "start" | "equal";
+  }>;
+  redirectTo: NonAuthRoutesType;
+  icon: IconProp;
+  name?: string;
+}
+
+export const NAV_ITEMS: Array<INavItem> = [
+  {
+    isActiveInThisRoutes: [
+      {
+        route: "home",
+        typeToCheck: "equal",
+      },
+    ],
+    redirectTo: "home",
+    icon: "user",
+    name: "About",
+  },
+  {
+    isActiveInThisRoutes: [
+      {
+        route: "skills",
+      },
+    ],
+    redirectTo: "skills",
+    icon: "tools",
+  },
+  {
+    isActiveInThisRoutes: [
+      {
+        route: "projects",
+        typeToCheck: "equal",
+      },
+      {
+        route: "projectDetail",
+      },
+    ],
+    redirectTo: "projects",
+    icon: "folder-open",
+  },
+  {
+    isActiveInThisRoutes: [
+      {
+        route: "experience",
+      },
+    ],
+    redirectTo: "experience",
+    icon: "briefcase",
+  },
+  {
+    isActiveInThisRoutes: [
+      {
+        route: "contact",
+      },
+    ],
+    redirectTo: "contact",
+    icon: "comment",
+  },
+];
 
 const NavBar: React.FC = ({ children }) => {
   const location = useLocation();

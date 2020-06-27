@@ -1,6 +1,9 @@
 import React from "react";
+import { Helmet } from "react-helmet";
 
 import SkillsColumn from "Components/SkillsColumn";
+
+import getPageTile from "Hooks/usePageTitle";
 
 import { AllSkills } from "Assets/Languages/Skills";
 
@@ -14,25 +17,35 @@ interface ISkillsList {
 const SKILLS: Array<ISkillsList> = [
   {
     name: "Front End",
-    skills: ["react", "jquery", "sass", "styledCompolents", "redux"],
+    skills: ["ux", "react", "jquery", "sass", "styledCompolents", "redux"],
   },
   {
     name: "Back End",
-    skills: ["nodejs", "socketio", "php", "cakePhp", "rest", "cloudFunctions"],
+    skills: ["rest", "nodejs", "socketio", "php", "cakePhp", "cloudFunctions"],
   },
   {
     name: "Database",
-    skills: ["mongodb", "mongoosejs", "mysql", "firestore", "elasticSearch"],
+    skills: [
+      "dataArchitecture",
+      "mongodb",
+      "mongoosejs",
+      "mysql",
+      "firestore",
+      "elasticSearch",
+    ],
   },
   {
     name: "Etc",
-    skills: ["typescript", "dataArchitecture", "ux", "oop", "eslint", "mvc"],
+    skills: ["typescript", "eslint", "mvc", "oop", "fp"],
   },
 ];
 
 const Skills: React.FC = () => {
   return (
     <>
+      <Helmet>
+        <title>{getPageTile("skills")}</title>
+      </Helmet>
       <Header>
         <span>Skills</span>
       </Header>

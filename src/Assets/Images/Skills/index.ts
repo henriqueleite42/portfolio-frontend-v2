@@ -22,6 +22,7 @@ const Skills: { [T in AllSkills]: any } = {
   redux: require("./redux.png"),
   mvc: require("./mvc.png"),
   oop: require("./oop.png"),
+  fp: require("./fp.png"),
   rest: require("./rest.png"),
   mongoosejs: require("./mongoosejs.png"),
 };

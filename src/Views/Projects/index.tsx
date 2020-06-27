@@ -1,8 +1,10 @@
 import React, { useState, useCallback } from "react";
+import { Helmet } from "react-helmet";
 
 import Loading from "./Components/Loading";
 import Project from "./Components/Project";
 
+import getPageTile from "Hooks/usePageTitle";
 import useProjects from "Hooks/useProjects";
 
 import { Header, ProjectsContainer, Filters, FilterItem } from "./style";
@@ -54,6 +56,8 @@ const FILTERS: Array<IFilter> = [
 ];
 
 const Projects: React.FC = () => {
+  const { projects, status } = useProjects();
+
   const [filters, setFilters] = useState<IFilters>({
     github: false,
     completed: false,
@@ -63,8 +67,6 @@ const Projects: React.FC = () => {
     acessible: false,
     responsive: false,
   });
-
-  const { projects, status } = useProjects();
 
   const getProjects = useCallback(() => {
     const filtredProjects = projects.filter(project => {
@@ -109,6 +111,9 @@ const Projects: React.FC = () => {
 
   return (
     <>
+      <Helmet>
+        <title>{getPageTile("projects")}</title>
+      </Helmet>
       <Header>
         <span>Projects</span>
         <div>

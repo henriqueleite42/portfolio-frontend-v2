@@ -1,21 +1,20 @@
 import styled from "styled-components";
 
 import Colors from "Assets/Style/Colors";
-import { fontBold, fontRegular } from "Assets/Style/Fonts";
+import { fontBold } from "Assets/Style/Fonts";
 
 interface ILabelProps {
   required?: boolean;
 }
 
 export const Container = styled.div`
-  display: flex;
-  flex-direction: row;
   margin-bottom: 0.5em;
 `;
 
-export const Wrapper = styled.div`
+export const InputContainer = styled.div`
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  position: relative;
 `;
 
 export const LabelContainer = styled.div`
@@ -37,11 +36,12 @@ export const Label = styled.label<ILabelProps>`
     &:before {
       content: " *";
       margin-right: 0.3em;
+      color: ${Colors.red};
     }
   `}
 `;
 
-export const InputContainer = styled.input`
+export const Input = styled.input`
   padding: 0.5em 0.7em;
   background-color: ${Colors.secondary};
   width: 85%;
@@ -57,20 +57,8 @@ export const InputContainer = styled.input`
   }
 `;
 
-export const TextareaContainer = styled.div`
-  background-color: ${Colors.secondary};
-  width: 85%;
-
-  > textarea {
-    padding: 0.5em 0.7em;
-    min-height: 3.5em;
-    width: 100%;
-    font-size: 1em;
-    ${fontRegular};
-  }
-`;
-
-export const ErrorContainer = styled.label`
-  color: ${Colors.red};
-  font-size: 1.2em;
+export const ErrorContainer = styled.div`
+  width: 100%;
+  padding: 0.5em 0.7em;
+  background-color: ${Colors.red};
 `;

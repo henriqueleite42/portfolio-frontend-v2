@@ -21,6 +21,7 @@ export interface ISkills {
   redux: string;
   mvc: string;
   oop: string;
+  fp: string;
   rest: string;
   mongoosejs: string;
   cloudFunctions: string;
@@ -49,6 +50,7 @@ const EN: ISkills = {
   redux: "Redux",
   mvc: "MVC",
   oop: "OOP",
+  fp: "FP",
   rest: "REST",
   mongoosejs: "Mongoose",
   cloudFunctions: "Cloud Functions",
