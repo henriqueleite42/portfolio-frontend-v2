@@ -55,6 +55,7 @@ export const Label = styled.label<ILabelProps>`
     &:before {
       content: " *";
       margin-right: 0.3em;
+      color: ${Colors.red};
     }
   `}
 `;

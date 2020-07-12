@@ -10,7 +10,7 @@
 - Adicionar um **Seletor de Idiomas** na NavBar
 - Adicionar um **Seletor de Temas** (Light, Dark, etc) na NavBar
 - Fazer outros Temas
-- Adicionar **Midias Sociais na tela de contato** (linkedin e github (criar um instagram?))
+- Adicionar **Midias Sociais na tela de contato** (linkedin, stackoverflow e github (criar um instagram?))
 - Adicionar **idioma dinamico na tela About**
 - Criar Hook que devolve o idioma desejado
   - Ele usa o contexto global para pegar o idioma, importa o arquivo com as traduções e retorna todos os elementos dele.

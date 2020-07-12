@@ -1,21 +1,22 @@
-import { useContext } from "react";
+import useLanguage from "Hooks/useLanguage";
 
-import { GlobalContext } from "Contexts/Global";
+import { Pages } from "Assets/Languages/PageTitles";
 
-import LngGlobal from "Assets/Languages/Global";
-import LngNavBar, { NavItems } from "Assets/Languages/NavBar";
-
-const usePageTitle = (page?: NavItems) => {
-  const { language } = useContext(GlobalContext);
+const usePageTitle = (page?: Pages): string => {
+  const language = useLanguage("PageTitles");
 
   if (!language) return "";
 
-  const defaultTitle = LngGlobal[language].defaultPageTitle;
+  const defaultTitle = language.default || "";
 
   if (page) {
-    const pageName = LngNavBar[language][page];
+    const pageName = language[page];
 
-    return `${defaultTitle} - ${pageName} `;
+    if (pageName) {
+      return `${defaultTitle} - ${pageName}`;
+    }
+
+    return `${defaultTitle} - ${page}`;
   }
 
   return defaultTitle;

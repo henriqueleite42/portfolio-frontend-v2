@@ -19,7 +19,6 @@ export const Header = styled.div`
   color: ${Colors.primary};
   margin-bottom: 3em;
   user-select: none;
-  ${fontBold};
 
   > span {
     font-size: 2.5em;
@@ -35,6 +34,10 @@ export const Header = styled.div`
     height: 2em;
     width: 2em;
     font-size: 1.2em;
+
+    * {
+      ${fontBold};
+    }
   }
 `;
 

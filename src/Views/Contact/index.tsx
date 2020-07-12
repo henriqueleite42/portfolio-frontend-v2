@@ -1,4 +1,4 @@
-import React, { useState, useCallback } from "react";
+import React, { useCallback } from "react";
 import { Helmet } from "react-helmet";
 import { useForm } from "react-hook-form";
 
@@ -8,43 +8,14 @@ import TextInput from "Components/TextInput";
 
 import getPageTile from "Hooks/usePageTitle";
 
-import { randomNumber } from "Utils/Math";
-
 import { Header, Description, ButtonContainer } from "./style";
 
 const Contact: React.FC = () => {
   const { register, handleSubmit, errors } = useForm();
 
-  const [validation, setValidation] = useState({
-    number1: randomNumber(10),
-    number2: randomNumber(10),
-  });
-
-  const validate = useCallback(
-    (value: string) => {
-      if (value !== (validation.number1 + validation.number2).toString()) {
-        return false;
-      }
-
-      return true;
-    },
-    [validation.number1, validation.number2],
-  );
-
-  const onSubmit = useCallback(
-    (data: any) => {
-      if (!validate(data.validation)) {
-        setValidation({
-          number1: randomNumber(10),
-          number2: randomNumber(10),
-        });
-        return;
-      }
-
-      console.log(data);
-    },
-    [validate],
-  );
+  const onSubmit = useCallback((data: any) => {
+    console.log(data);
+  }, []);
 
   return (
     <>
@@ -96,28 +67,24 @@ const Contact: React.FC = () => {
           placeholder="30 days"
           innerRef={register()}
         />
-        <TextInput
-          label={`${validation.number1} + ${validation.number2}`}
-          name="validation"
-          isRequired
-          placeholder="Are you a human?"
-          innerRef={register({
-            validate,
-            maxLength: 500,
-          })}
-          errorMessage={errors.validation && "Incorrect Value."}
-        />
         <Textarea
-          label="Tell me a little about your project"
+          label="Tell me about your project"
           name="description"
+          isRequired
           placeholder={
-            "It's a Website? A Startup? A Landing Page? Maybe a Store?\nAbout what? Pets? Fishing? Games?"
+            "It's a Website? A Landing Page? Maybe a Store?\nAbout what? Pets? Fishing? Games?"
           }
           limit={1000}
           innerRef={register({
+            required: true,
             maxLength: 1000,
           })}
-          errorMessage={errors.description && "Limit exceeded"}
+          errorMessage={
+            errors.description &&
+            (errors.description.type === "required"
+              ? "This Field Is Required."
+              : "Limit exceeded")
+          }
         />
         <ButtonContainer>
           <Button aria-label="submit">Submit</Button>

@@ -1,5 +1,6 @@
 import { IconProp } from "@fortawesome/fontawesome-svg-core";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { motion } from "framer-motion";
 import React, { useCallback } from "react";
 import { useLocation, useHistory } from "react-router-dom";
 
@@ -11,7 +12,6 @@ import {
   Container,
   Left,
   Logo,
-  Right,
   NavBarContainer,
   Footer,
   NavItem,
@@ -26,6 +26,18 @@ export interface INavItem {
   icon: IconProp;
   name?: string;
 }
+
+const pageVariants = {
+  initial: {
+    opacity: 0,
+  },
+  in: {
+    opacity: 1,
+  },
+  out: {
+    opacity: 0,
+  },
+};
 
 export const NAV_ITEMS: Array<INavItem> = [
   {
@@ -127,7 +139,7 @@ const NavBar: React.FC = ({ children }) => {
         <NavBarContainer>
           {NAV_ITEMS.map(item => (
             <NavItem
-              key={item.name}
+              key={item.name || item.redirectTo}
               data-active={checkIfRouteIsActive(item.isActiveInThisRoutes)}
               onClick={() => redirect(item.redirectTo)}
               aria-label={item.name}
@@ -143,7 +155,14 @@ const NavBar: React.FC = ({ children }) => {
           <span>Razal&#39;s Portfolio</span>
         </Footer>
       </Left>
-      <Right>{children}</Right>
+      <motion.div
+        initial="initial"
+        animate="in"
+        exit="out"
+        variants={pageVariants}
+      >
+        {children}
+      </motion.div>
     </Container>
   );
 };

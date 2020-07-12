@@ -1,3 +1,4 @@
+import { AnimatePresence } from "framer-motion";
 import React, { Suspense, useContext } from "react";
 import ReactDOM from "react-dom";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
@@ -38,24 +39,26 @@ const Router: React.FC = () => {
   const { theme } = useContext(GlobalContext);
 
   return (
-    <Suspense fallback={<LoadingScreen />}>
-      <Providers>
-        <div data-theme={theme}>
-          <BrowserRouter>
-            <Switch>
-              {NON_AUTH_ROUTES.map(route => (
-                <Route
-                  exact={route.exact ?? true}
-                  key={route.name}
-                  path={route.fullRoute || route.route}
-                  component={loadRoute(route)}
-                />
-              ))}
-            </Switch>
-          </BrowserRouter>
-        </div>
-      </Providers>
-    </Suspense>
+    <AnimatePresence>
+      <Suspense fallback={<LoadingScreen />}>
+        <Providers>
+          <div data-theme={theme}>
+            <BrowserRouter>
+              <Switch>
+                {NON_AUTH_ROUTES.map(route => (
+                  <Route
+                    exact={route.exact ?? true}
+                    key={route.name}
+                    path={route.fullRoute || route.route}
+                    component={loadRoute(route)}
+                  />
+                ))}
+              </Switch>
+            </BrowserRouter>
+          </div>
+        </Providers>
+      </Suspense>
+    </AnimatePresence>
   );
 };
 

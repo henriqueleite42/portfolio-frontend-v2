@@ -1,34 +1,34 @@
 import AllLangs from "Assets/Languages";
 
-export interface INavBar {
-  about: string;
+export interface IPageTitle {
+  default: string;
   skills: string;
   projects: string;
   experience: string;
   contact: string;
 }
 
-export type NavItems = keyof INavBar;
+export type Pages = keyof IPageTitle;
 
-const EN: INavBar = {
-  about: "About",
+const EN: IPageTitle = {
+  default: "Razal's Portfolio",
   skills: "Skills",
   projects: "Projects",
   experience: "Experience",
   contact: "Contact",
 };
 
-const BR: INavBar = {
-  about: "Sobre Mim",
+const BR: IPageTitle = {
+  default: "Portfolio do Razal",
   skills: "Habilidades",
   projects: "Projetos",
   experience: "Experiência",
   contact: "Contato",
 };
 
-const NavBar: { [T in keyof typeof AllLangs]: INavBar } = {
+const PageTitle: { [T in keyof typeof AllLangs]: IPageTitle } = {
   EN,
   BR,
 };
 
-export default NavBar;
+export default PageTitle;

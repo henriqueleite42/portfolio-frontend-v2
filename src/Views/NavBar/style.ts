@@ -7,6 +7,30 @@ export const NAV_WIDTH = "20vw";
 
 export const Container = styled.div`
   display: flex;
+
+  > div:last-child {
+    width: 80vw;
+    height: 100vh;
+    padding: 2em;
+    background-color: ${Colors.background};
+
+    &::-webkit-scrollbar {
+      width: 1em;
+    }
+
+    &::-webkit-scrollbar-track {
+      background-color: transparent;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background-color: ${Colors.secondary};
+      transition: all 0.5s ease-in-out;
+
+      &:hover {
+        background-color: ${Colors.primary};
+      }
+    }
+  }
 `;
 
 export const Left = styled.div`
@@ -76,26 +100,4 @@ export const Footer = styled.nav`
   color: ${Colors.background};
 `;
 
-export const Right = styled.div`
-  width: 80vw;
-  height: 100vh;
-  padding: 2em;
-  background-color: ${Colors.background};
-
-  &::-webkit-scrollbar {
-    width: 1em;
-  }
-
-  &::-webkit-scrollbar-track {
-    background-color: transparent;
-  }
-
-  &::-webkit-scrollbar-thumb {
-    background-color: ${Colors.secondary};
-    transition: all 0.5s ease-in-out;
-
-    &:hover {
-      background-color: ${Colors.primary};
-    }
-  }
-`;
+export const Right = styled.div``;

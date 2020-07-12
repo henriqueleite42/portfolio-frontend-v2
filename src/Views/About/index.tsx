@@ -4,7 +4,7 @@ import { useHistory } from "react-router-dom";
 
 import SkillsColumn from "Components/SkillsColumn";
 
-import getPageTile from "Hooks/usePageTitle";
+import usePageTitle from "Hooks/usePageTitle";
 
 import { ROUTES_NAME } from "Config/routes";
 
@@ -38,7 +38,7 @@ const About: React.FC = () => {
   return (
     <>
       <Helmet>
-        <title>{getPageTile()}</title>
+        <title>{usePageTitle()}</title>
       </Helmet>
       <Header>
         <Img src={ImgImages.selfie} alt="Razal" />

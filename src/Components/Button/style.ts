@@ -6,7 +6,8 @@ export const Container = styled.button`
   padding: 0.5rem 1rem;
   transition: all 0.15s ease-in-out;
 
-  &:hover {
+  &:hover,
+  &:focus {
     background-color: ${Colors.primary};
     color: ${Colors.background};
   }

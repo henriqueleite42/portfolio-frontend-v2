@@ -33,6 +33,7 @@ const Textarea: React.FC<IProps> = props => {
     isRequired,
     placeholder,
     limit,
+    name,
     id,
   } = props;
 
@@ -47,6 +48,7 @@ const Textarea: React.FC<IProps> = props => {
           </Label>
         </LabelContainer>
         <TextareaAutosize
+          name={name}
           onChange={e => setLength(e.target.value.length)}
           placeholder={placeholder || ""}
           ref={innerRef}
